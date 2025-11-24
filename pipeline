@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    tools {
+        maven '3.9.10'   // Use the Maven installation name shown in your screenshot
+    }
+
+    stages {
+
+        stage('Git Clone & Clean') {
+            steps {
+                bat "git clone https://github.com/akhilakoramati/maven-web-project.git"
+                bat "mvn -version"
+                bat "mvn clean -f maven-web-project/pom.xml"
+            }
+        }
+
+        stage('Install') {
+            steps {
+                bat "mvn install -f maven-web-project/pom.xml"
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat "mvn test -f maven-web-project/pom.xml"
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat "mvn package -f maven-web-project/pom.xml"
+            }
+        }
+    }
+}
