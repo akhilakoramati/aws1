@@ -1,3 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ####docker CLI commands (power shell run as administrator)
 docker --version
 docker pull redis
@@ -41,3 +80,8 @@ kubectl scale deployment mynginx --replicas=4
 kubectl get service mynginx
 kubectl port-forward svc/mynginx 8081:80
 ==========================================
+FROM tomcat:9-jdk11
+COPY target/*.war /usr/local/tomcat/webapps
+-----------------------------------------
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
