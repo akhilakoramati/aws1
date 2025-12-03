@@ -85,3 +85,14 @@ COPY target/*.war /usr/local/tomcat/webapps
 -----------------------------------------
 FROM nginx:alpine
 COPY . /usr/share/nginx/html
+---
+sudo apt update
+sudo apt-get install docker.io
+sudo apt install git
+sudo apt install nano
+git clone
+nano Dockerfile
+sudo docker build -t mavenwebproject.
+sudo docker run -d -p 9090:8080 mavenwebproject
+sudo ps
+sudo docker stop <container_id>
